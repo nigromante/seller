@@ -13,8 +13,8 @@ public class OrderController {
   @GetMapping("/order")
   public String list() {
       
-      OrderListService service = new OrderListServiceImpl(); 
-        List<String> result = service.call();
+      OrderService service = new OrderServiceImpl(); 
+        List<String> result = service.list();
       
     return "saludos desde (GET /order): " + this.getClass().getName();
   } 
@@ -22,8 +22,8 @@ public class OrderController {
   @PostMapping("/order")
   public String create() {
       
-        CreateOrderService service = new CreateOrderServiceImpl(); 
-        int tt = service.call("mit", "gnn");
+        OrderService service = new OrderServiceImpl(); 
+        int tt = service.create("mit", "gnn");
       
     return "saludos desde (POST /order): " + this.getClass().getName();
   } 

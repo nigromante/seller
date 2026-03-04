@@ -5,9 +5,12 @@ import com.nigromante.seller.domain.entities.Order;
 import  com.nigromante.seller.domain.useCases.CreateOrder.*;
 import  com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 
-public class CreateOrderServiceImpl implements CreateOrderService {
+import java.util.ArrayList;
+import java.util.List;
 
-    public int call( String orderId, String customerId ) { 
+public class OrderServiceImpl implements OrderService {
+
+    public int create( String orderId, String customerId ) { 
     
         CreateOrderUseCase useCase = new CreateOrderUseCase( new OrderRepositoryMysql() );
 
@@ -17,5 +20,11 @@ public class CreateOrderServiceImpl implements CreateOrderService {
         return 0;
     }
 
+    public List<String> list() {
+        
+        List<String> result = new ArrayList<>();
+        
+        return result;
+    }
 }
 
