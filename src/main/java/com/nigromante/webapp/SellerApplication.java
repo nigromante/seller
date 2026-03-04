@@ -15,7 +15,7 @@ public class SellerApplication {
 		SpringApplication.run(SellerApplication.class, args);
 	}
         
-        
+        /*
         @Bean
          public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
            return args -> {
@@ -30,4 +30,5 @@ public class SellerApplication {
 
            };
          }
+        */
 }
