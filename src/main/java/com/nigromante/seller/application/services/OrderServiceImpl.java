@@ -26,5 +26,10 @@ public class OrderServiceImpl implements OrderService {
         
         return result;
     }
+
+    public String getById( String orderId ){
+      return "";
+    }
+
 }
 

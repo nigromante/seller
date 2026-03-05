@@ -7,5 +7,8 @@ public interface OrderService {
     public int create( String orderId, String customerId );
 
     public List<String> list() ;
+
+    public String getById( String orderId );
+
 }
 
