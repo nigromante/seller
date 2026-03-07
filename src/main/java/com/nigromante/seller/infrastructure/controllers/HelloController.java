@@ -1,4 +1,4 @@
-package com.nigromante.webapp;
+package com.nigromante.seller.infrastructure.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
