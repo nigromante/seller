@@ -7,9 +7,13 @@ import  com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class OrderServiceImpl implements OrderService {
 
+    @Override
     public int create( String orderId, String customerId ) { 
     
         CreateOrderUseCase useCase = new CreateOrderUseCase( new OrderRepositoryMysql() );
@@ -20,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
         return 0;
     }
 
+    @Override
     public List<String> list() {
         
         List<String> result = new ArrayList<>();
@@ -27,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
         return result;
     }
 
+    @Override
     public String getById( String orderId ){
       return "";
     }

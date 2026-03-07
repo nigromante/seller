@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import com.nigromante.seller.application.services.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping( value = "order" )
@@ -27,8 +28,6 @@ public class OrderController {
   @PostMapping( value="find")
   public String findById( @RequestParam String orderId ) {
       
-      OrderService service = new OrderServiceImpl(); 
-        List<String> result = service.list();
       
     return "saludos desde (GET /find): " + this.getClass().getName() + "  orderId: " + orderId ;
   } 
