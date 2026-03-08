@@ -7,12 +7,12 @@ import  com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
-@Component
+@Service
 public class OrderServiceImpl implements OrderService {
-
+    
     @Override
     public int create( String orderId, String customerId ) { 
     

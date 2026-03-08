@@ -15,10 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class OrderController {
     
 
+
+  @Autowired 
+  private OrderServiceImpl service;
+    
   @PostMapping( value="getall")
   public String list() {
       
-      OrderService service = new OrderServiceImpl(); 
         List<String> result = service.list();
       
     return "saludos desde (GET /order): " + this.getClass().getName();
@@ -36,7 +39,6 @@ public class OrderController {
   @PostMapping( value = "create" )
   public String create() {
       
-        OrderService service = new OrderServiceImpl(); 
         int tt = service.create("mit", "gnn");
       
     return "saludos desde (POST /order): " + this.getClass().getName();
