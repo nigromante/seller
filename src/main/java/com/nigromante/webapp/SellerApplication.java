@@ -11,8 +11,9 @@ import org.springframework.boot.CommandLineRunner;
 */
 
 @SpringBootApplication
-@ComponentScan({"com.nigromante.seller.infrastructure.controllers", "com.nigromante.seller.application.services" } )
-
+@ComponentScan({
+      "com.nigromante.seller" 
+})
 public class SellerApplication {
 
 	public static void main(String[] args) {
