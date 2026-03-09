@@ -3,15 +3,14 @@ package com.nigromante.webapp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-/*
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
-*/
 
 @SpringBootApplication
 @ComponentScan({
+      "com.nigromante.webapp", 
       "com.nigromante.seller" 
 })
 public class SellerApplication {
@@ -20,7 +19,6 @@ public class SellerApplication {
 		SpringApplication.run(SellerApplication.class, args);
 	}
         
-        /*
         @Bean
          public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
            return args -> {
@@ -35,5 +33,4 @@ public class SellerApplication {
 
            };
          }
-        */
 }
