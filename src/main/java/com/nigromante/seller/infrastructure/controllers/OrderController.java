@@ -15,12 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RestController
 @RequestMapping( value = "order" )
 public class OrderController {
-    
 
 
   @Autowired 
   private OrderService service;
-    
+
+  
   @PostMapping( value="getall")
   public String list() {
       
@@ -41,7 +41,7 @@ public class OrderController {
   @PostMapping( value = "create" )
   public String create() {
       
-        int tt = service.create("mit", "gnn");
+        int tt = service.create("mitomano", "gunns & rooses" );
       
     return "saludos desde (POST /order): " + this.getClass().getName();
   } 

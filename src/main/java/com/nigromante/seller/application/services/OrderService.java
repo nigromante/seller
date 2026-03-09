@@ -4,22 +4,20 @@ package com.nigromante.seller.application.services;
 import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.entities.Order;
 import  com.nigromante.seller.domain.useCases.CreateOrder.*;
-import  com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class OrderService implements OrderServiceInterface {
     
-    private OrderRepository orderRepository ;
+    private final OrderRepository orderRepository ;
 
     
-    public OrderService( ) {
-        this.orderRepository = new OrderRepositoryMysql();
+    public OrderService( OrderRepository orderRepository ) {
+        this.orderRepository = orderRepository ;
        
     }
     
