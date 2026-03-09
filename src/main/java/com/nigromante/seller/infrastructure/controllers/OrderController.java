@@ -1,14 +1,16 @@
 package com.nigromante.seller.infrastructure.controllers;
 
+import com.nigromante.seller.application.repositories.OrderRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import com.nigromante.seller.application.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 
 @RestController
 @RequestMapping( value = "order" )
@@ -17,7 +19,7 @@ public class OrderController {
 
 
   @Autowired 
-  private OrderServiceImpl service;
+  private OrderService service;
     
   @PostMapping( value="getall")
   public String list() {

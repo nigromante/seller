@@ -1,6 +1,6 @@
 
 
-package com.nigromante.seller.domain.repositories;
+package com.nigromante.seller.application.repositories;
 
 import com.nigromante.seller.domain.entities.Order;
 

@@ -3,7 +3,7 @@
 package com.nigromante.seller.domain.useCases.CreateOrder;
 
 import com.nigromante.seller.domain.entities.Order;
-import com.nigromante.seller.domain.repositories.OrderRepository;
+import com.nigromante.seller.application.repositories.OrderRepository;
 
 public class CreateOrderUseCase {
     OrderRepository orderRepository;

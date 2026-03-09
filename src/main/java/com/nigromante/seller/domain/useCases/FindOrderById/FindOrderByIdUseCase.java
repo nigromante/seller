@@ -5,7 +5,7 @@
 package com.nigromante.seller.domain.useCases.FindOrderById;
 
 import com.nigromante.seller.domain.entities.Order;
-import com.nigromante.seller.domain.repositories.OrderRepository;
+import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.useCases.CreateOrder.CreateOrderCommand;
 import com.nigromante.seller.domain.useCases.CreateOrder.CreateOrderMapper;
 
