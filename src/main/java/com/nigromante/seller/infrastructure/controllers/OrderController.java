@@ -1,15 +1,15 @@
 package com.nigromante.seller.infrastructure.controllers;
 
-import com.nigromante.seller.application.repositories.OrderRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import com.nigromante.seller.application.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
+import com.nigromante.seller.application.services.*;
+import com.nigromante.seller.application.repositories.OrderRepository;
+import org.springframework.http.MediaType;
 
 
 @RestController
@@ -21,7 +21,7 @@ public class OrderController {
   private OrderService service;
 
   
-  @PostMapping( value="getall")
+  @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {
       
         List<String> result = service.list();
@@ -30,7 +30,7 @@ public class OrderController {
   } 
 
 
-  @PostMapping( value="find")
+  @PostMapping( value="find", produces = MediaType.APPLICATION_JSON_VALUE )
   public String findById( @RequestParam String orderId ) {
       
       
@@ -38,12 +38,11 @@ public class OrderController {
   } 
 
 
-  @PostMapping( value = "create" )
+  @PostMapping( value = "create", produces = MediaType.APPLICATION_JSON_VALUE )
   public String create() {
       
-        int tt = service.create("mitomano", "gunns & rooses" );
-      
-    return "saludos desde (POST /order): " + this.getClass().getName();
+        return service.create("mitomano", "gunns & rooses" );
+
   } 
   
 }

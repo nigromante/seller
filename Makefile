@@ -9,3 +9,6 @@ run:
 clean:
 	 @rm -rf ./target
 
+script:
+	 @bash ./scripts/$(file).sh 
+

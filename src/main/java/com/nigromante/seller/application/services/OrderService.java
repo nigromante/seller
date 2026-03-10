@@ -1,6 +1,7 @@
 
 package com.nigromante.seller.application.services;
 
+import com.nigromante.seller.application.mapping.OrderMapping;
 import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.entities.Order;
 import  com.nigromante.seller.domain.useCases.CreateOrder.*;
@@ -18,19 +19,19 @@ public class OrderService implements OrderServiceInterface {
     
     public OrderService( OrderRepository orderRepository ) {
         this.orderRepository = orderRepository ;
-       
     }
-    
+   
+
     @Override
-    public int create( String orderId, String customerId ) { 
+    public String create( String orderId, String customerId ) { 
     
         CreateOrderUseCase useCase = new CreateOrderUseCase( this.orderRepository );
 
         Order order = useCase.run( new CreateOrderCommand(orderId , customerId) );
-        useCase = null;
-
-        return 0;
+        
+        return OrderMapping.Map(order);
     }
+
 
     @Override
     public List<String> list() {
@@ -40,10 +41,12 @@ public class OrderService implements OrderServiceInterface {
         return result;
     }
 
+
     @Override
     public String getById( String orderId ){
       return "";
     }
+
 
 }
 

@@ -21,4 +21,8 @@ public final class Code  {
 
     return  true;
   }
+  
+  public String Value() {
+      return this.value;
+  }
 } 

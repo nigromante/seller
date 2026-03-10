@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface OrderServiceInterface {
 
-    public int create( String orderId, String customerId );
+    public String create( String orderId, String customerId );
 
     public List<String> list() ;
 
