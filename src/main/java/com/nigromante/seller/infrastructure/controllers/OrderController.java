@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import java.util.List;
 
 import com.nigromante.seller.application.services.*;
-import com.nigromante.seller.application.repositories.OrderRepository;
-import org.springframework.http.MediaType;
 
 
 @RestController

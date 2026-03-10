@@ -1,5 +1,4 @@
 
-
 package com.nigromante.seller.domain.useCases.CreateOrder;
 
 import com.nigromante.seller.domain.entities.Order;
