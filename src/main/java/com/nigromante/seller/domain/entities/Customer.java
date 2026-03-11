@@ -2,23 +2,25 @@
 package com.nigromante.seller.domain.entities;
 
 import com.nigromante.seller.domain.exceptions.ExceptionsList;
-import com.nigromante.seller.domain.objects.*;
+import com.nigromante.seller.domain.objects.Code;
+import com.nigromante.seller.domain.objects.Rut;
 import lombok.Getter;
 
 @Getter
-public final class Order {
+public class Customer {
+    
+      private Code  customerId;
+      private Rut   rutNumber;
+      private String nombre;
 
-  private Code orderId;
-  private Code customerId;
-
-  public Order( String orderId, String customerId ) throws Exception{
+      public Customer( String customerId, String rutNumber ) throws Exception{
 
       ExceptionsList exList = new ExceptionsList() ; 
 
       try {
-        this.orderId = Code.of(orderId);
+        this.rutNumber = Rut.of(rutNumber);
       } catch( Exception ex ){
-        exList.Add("orderId" , ex.getMessage() );
+        exList.Add("rutNumber" , ex.getMessage() );
       }      
       
       try {
@@ -30,5 +32,5 @@ public final class Order {
       exList.Throw();
   }
 
-
+      
 }

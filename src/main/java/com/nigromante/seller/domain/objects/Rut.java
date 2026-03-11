@@ -1,18 +1,18 @@
 
 package com.nigromante.seller.domain.objects;
-import com.nigromante.seller.domain.exceptions.CodeInvalidException;
+import com.nigromante.seller.domain.exceptions.RutInvalidException;
 
-public final class Code  {
+public final class Rut  {
 
   private String value;
 
-  public static Code of( String value) throws Exception {
-      return new Code( value ) ;
+  public static Rut of( String value ) throws Exception {
+      return new Rut(value);
   }
   
-  private Code( String value ) throws Exception {
+  private Rut( String value ) throws Exception {
     if( ! this.ensureValue( value) ) {
-      throw new CodeInvalidException();
+      throw new RutInvalidException();
     }
     this.value = value;
   }

@@ -2,7 +2,6 @@
 
 package com.nigromante.seller.application.dto;
 
-import com.nigromante.seller.application.dto.OrderDTO;
 import com.nigromante.seller.domain.entities.Order;
 import tools.jackson.databind.ObjectMapper;
 
