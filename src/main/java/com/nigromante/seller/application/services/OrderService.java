@@ -4,7 +4,7 @@ package com.nigromante.seller.application.services;
 import com.nigromante.seller.domain.useCases.Order.OrderList.OrderListUseCase;
 import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderUseCase;
 import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
-import com.nigromante.seller.application.mapping.OrderMapping;
+import com.nigromante.seller.application.dto.OrderDTOMapping;
 import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.entities.Order;
 import com.nigromante.seller.domain.useCases.Order.OrderById.FindOrderByIdUseCase;
@@ -31,7 +31,7 @@ public class OrderService implements OrderServiceInterface {
 
         Order order = useCase.run( orderCommand );
         
-        return OrderMapping.Map( order );
+        return OrderDTOMapping.Map( order );
     }
 
 
@@ -53,7 +53,7 @@ public class OrderService implements OrderServiceInterface {
 
         Order order = useCase.run( orderId );
 
-        return OrderMapping.Map( order );
+        return OrderDTOMapping.Map( order );
     }
 
 

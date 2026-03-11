@@ -1,13 +1,13 @@
 
 
-package com.nigromante.seller.application.mapping;
+package com.nigromante.seller.application.dto;
 
 import com.nigromante.seller.application.dto.OrderDTO;
 import com.nigromante.seller.domain.entities.Order;
 import tools.jackson.databind.ObjectMapper;
 
 
-public class OrderMapping {
+public class OrderDTOMapping {
 
     public static OrderDTO Order2DTO( Order order ) {
         return OrderDTO
@@ -19,7 +19,7 @@ public class OrderMapping {
     
     public static String Map( Order order ) {
         ObjectMapper mapper = new ObjectMapper();
-        return  mapper.writeValueAsString( OrderMapping.Order2DTO( order ) );        
+        return  mapper.writeValueAsString(OrderDTOMapping.Order2DTO( order ) );        
     }
 
 }
