@@ -9,6 +9,7 @@ run:
 clean:
 	 @rm -rf ./target
 
+#  make script file=test1
 script:
 	 @bash ./scripts/$(file).sh 
 
