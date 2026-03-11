@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import java.util.List;
 
 import com.nigromante.seller.application.services.*;
+import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
 
 
 @RestController
 @RequestMapping( value = "order" )
 public class OrderController {
-
 
   @Autowired 
   private OrderService service;
@@ -23,25 +22,27 @@ public class OrderController {
   @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {
       
-        List<String> result = service.list();
-      
-    return "saludos desde (GET /order): " + this.getClass().getName();
+    return service.list();
   } 
 
 
   @PostMapping( value="find", produces = MediaType.APPLICATION_JSON_VALUE )
-  public String findById( @RequestParam String orderId ) {
+  public String find( @RequestParam String orderId ) {
       
-      
-    return "saludos desde (GET /find): " + this.getClass().getName() + "  orderId: " + orderId ;
+    return service.find( orderId );
   } 
 
 
   @PostMapping( value = "create", produces = MediaType.APPLICATION_JSON_VALUE )
   public String create() {
       
-        return service.create("mitomano", "gunns & rooses" );
-
+    CreateOrderCommand cmd = CreateOrderCommand
+            .builder()
+            .orderId("nigromante")
+            .customerId("velociraptor")
+            .build();
+    
+    return service.create( cmd );
   } 
   
 }

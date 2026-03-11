@@ -1,20 +1,21 @@
 
-package com.nigromante.seller.domain.useCases.FindOrderById;
+package com.nigromante.seller.domain.useCases.Order.OrderList;
 
 import com.nigromante.seller.domain.entities.Order;
 import com.nigromante.seller.application.repositories.OrderRepository;
+import java.util.List;
 
-public class FindOrderByIdUseCase {
+public class OrderListUseCase {
     OrderRepository orderRepository;
 
-    public FindOrderByIdUseCase(OrderRepository orderRepository) {
+    public OrderListUseCase(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
     
-    public Order run( String orderId ) { 
+    public List<Order> run( ) { 
         try {
-            Order order = this.orderRepository.findByOrderId(orderId) ;
-            return order;
+            List<Order> orders = this.orderRepository.getAll() ;
+            return orders;
         }catch (Exception ex ) {
              System.out.println( "CreateOrderUseCase : " + ex.getMessage() );
         }
