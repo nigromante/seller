@@ -31,12 +31,12 @@ public class OrderService implements OrderServiceInterface {
 
         Order order = useCase.run( orderCommand );
         
-        return OrderMapping.Map(order);
+        return OrderMapping.Map( order );
     }
 
 
     @Override
-    public String list() {
+    public String list( ) {
         OrderListUseCase useCase = new OrderListUseCase( this.orderRepository ) ;
         
         List<Order> result = useCase.run( );
@@ -51,9 +51,9 @@ public class OrderService implements OrderServiceInterface {
 
         FindOrderByIdUseCase useCase = new FindOrderByIdUseCase( this.orderRepository );
 
-        Order order = useCase.run(  orderId );
+        Order order = useCase.run( orderId );
 
-        return OrderMapping.Map(order);
+        return OrderMapping.Map( order );
     }
 
 

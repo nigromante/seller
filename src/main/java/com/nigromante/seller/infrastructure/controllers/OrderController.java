@@ -22,7 +22,7 @@ public class OrderController {
   @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {
       
-    return service.list();
+    return service.list( );
   } 
 
 
