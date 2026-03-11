@@ -8,17 +8,18 @@ import tools.jackson.databind.ObjectMapper;
 
 
 public class OrderMapping {
-    
-    public static String Map( Order order ) {
 
-        OrderDTO orderDTO = OrderDTO
+    public static OrderDTO Order2DTO( Order order ) {
+        return OrderDTO
                 .builder()
                 .orderId( order.getOrderId().Value() )
                 .customerId( order.getCustomerId().Value() )
                 .build();
-
+    }
+    
+    public static String Map( Order order ) {
         ObjectMapper mapper = new ObjectMapper();
-        return  mapper.writeValueAsString(orderDTO );        
+        return  mapper.writeValueAsString( OrderMapping.Order2DTO( order ) );        
     }
 
 }
