@@ -1,13 +1,9 @@
 
 package com.nigromante.seller.application.services;
 
-import com.nigromante.seller.domain.useCases.Order.OrderList.OrderListUseCase;
-import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderUseCase;
-import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
-import com.nigromante.seller.application.dto.OrderDTOMapping;
+import com.nigromante.seller.domain.useCases.Order.*;
 import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.entities.Order;
-import com.nigromante.seller.domain.useCases.Order.OrderById.FindOrderByIdUseCase;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -25,35 +21,28 @@ public class OrderService implements OrderServiceInterface {
    
 
     @Override
-    public String create(  CreateOrderCommand orderCommand ) { 
+    public Order create( CreateOrderCommand orderCommand ) { 
     
         CreateOrderUseCase useCase = new CreateOrderUseCase( this.orderRepository );
 
-        Order order = useCase.run( orderCommand );
-        
-        return OrderDTOMapping.Map( order );
+        return useCase.run( orderCommand );
     }
 
 
     @Override
-    public String list( ) {
-        OrderListUseCase useCase = new OrderListUseCase( this.orderRepository ) ;
+    public List<Order> list( ) {
+        ListOrderUseCase useCase = new ListOrderUseCase( this.orderRepository ) ;
         
-        List<Order> result = useCase.run( );
-
-        
-        return "";
+        return useCase.run( );
     }
 
 
     @Override
-    public String find( String orderId ){
+    public Order find( String orderId ){
 
         FindOrderByIdUseCase useCase = new FindOrderByIdUseCase( this.orderRepository );
 
-        Order order = useCase.run( orderId );
-
-        return OrderDTOMapping.Map( order );
+        return useCase.run( orderId );
     }
 
 

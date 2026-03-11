@@ -1,14 +1,14 @@
 
-package com.nigromante.seller.domain.useCases.Order.OrderList;
+package com.nigromante.seller.domain.useCases.Order;
 
 import com.nigromante.seller.domain.entities.Order;
 import com.nigromante.seller.application.repositories.OrderRepository;
 import java.util.List;
 
-public class OrderListUseCase {
+public class ListOrderUseCase {
     OrderRepository orderRepository;
 
-    public OrderListUseCase(OrderRepository orderRepository) {
+    public ListOrderUseCase(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
     

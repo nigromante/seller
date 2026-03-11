@@ -1,5 +1,6 @@
 package com.nigromante.seller.infrastructure.controllers;
 
+import com.nigromante.seller.application.dto.OrderDTOMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import com.nigromante.seller.application.services.*;
-import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
+import com.nigromante.seller.domain.entities.Order;
+import com.nigromante.seller.domain.useCases.Order.CreateOrderCommand;
+import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
+import tools.jackson.databind.ObjectMapper;
 
 
 @RestController
@@ -23,21 +27,26 @@ public class OrderController {
   @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {
       
-    return service.list( );
+    List<Order> orders = service.list( );
+    ObjectMapper mapper = new ObjectMapper();
+    return  "{\"message\":\"pp\"}"; 
   } 
 
 
   @PostMapping( value="find", produces = MediaType.APPLICATION_JSON_VALUE )
   public String find( @RequestParam String orderId ) {
       
-    return service.find( orderId );
+    Order order =  service.find( orderId );
+    return OrderDTOMapping.Map(order);
   } 
 
 
   @PostMapping( value = "create", produces = MediaType.APPLICATION_JSON_VALUE )
   public String create( @RequestBody CreateOrderCommand cmd ) {
     
-    return service.create( cmd );
+    Order order = service.create( cmd );
+    return OrderDTOMapping.Map(order);
   } 
+
   
 }

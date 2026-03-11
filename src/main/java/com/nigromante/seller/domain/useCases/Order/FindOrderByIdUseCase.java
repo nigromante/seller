@@ -1,5 +1,5 @@
 
-package com.nigromante.seller.domain.useCases.Order.OrderById;
+package com.nigromante.seller.domain.useCases.Order;
 
 import com.nigromante.seller.domain.entities.Order;
 import com.nigromante.seller.application.repositories.OrderRepository;

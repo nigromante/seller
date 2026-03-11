@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl -s -X POST http://localhost:8080/order/getall
+curl -s -X POST http://localhost:8080/order/getall |  json_pp

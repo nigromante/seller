@@ -1,16 +1,18 @@
 
 package com.nigromante.seller.application.services;
 
-import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
+import com.nigromante.seller.domain.entities.Order;
+import com.nigromante.seller.domain.useCases.Order.CreateOrderCommand;
+import java.util.List;
 
 
 public interface OrderServiceInterface {
 
-    public String create( CreateOrderCommand orderCommand ) ; 
+    public Order create( CreateOrderCommand orderCommand ) ; 
 
-    public String list( ) ;
+    public List<Order> list( ) ;
 
-    public String find( String orderId ) ;
+    public Order find( String orderId ) ;
 
 }
 
