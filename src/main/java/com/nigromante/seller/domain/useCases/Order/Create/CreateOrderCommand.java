@@ -3,12 +3,11 @@ package com.nigromante.seller.domain.useCases.Order.Create;
 
 import lombok.*;
 
-@Data
-@Builder
+@RequiredArgsConstructor
 @Getter
 public class CreateOrderCommand {
 
-    private String orderId;
-    private String customerId;
+    private final String orderId;
+    private final String customerId;
 }
 

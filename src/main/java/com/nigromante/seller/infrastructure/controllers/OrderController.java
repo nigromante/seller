@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 
 import com.nigromante.seller.application.services.*;
 import com.nigromante.seller.domain.useCases.Order.Create.CreateOrderCommand;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -34,13 +35,7 @@ public class OrderController {
 
 
   @PostMapping( value = "create", produces = MediaType.APPLICATION_JSON_VALUE )
-  public String create() {
-      
-    CreateOrderCommand cmd = CreateOrderCommand
-            .builder()
-            .orderId("nigromante")
-            .customerId("velociraptor")
-            .build();
+  public String create( @RequestBody CreateOrderCommand cmd ) {
     
     return service.create( cmd );
   } 
