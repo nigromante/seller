@@ -1,18 +1,18 @@
 
 package com.nigromante.seller.domain.objects;
-import com.nigromante.seller.domain.exceptions.CodeInvalidException;
+import com.nigromante.seller.domain.exceptions.NameInvalidException;
 
-public final class Code  {
+public final class Name  {
 
   private String value;
 
-  public static Code Of( String value) throws Exception {
-      return new Code( value ) ;
+  public static Name Of( String value) throws Exception {
+      return new Name( value ) ;
   }
   
-  private Code( String value ) throws Exception {
+  private Name( String value ) throws Exception {
     if( ! this.ensureValue( value) ) {
-      throw new CodeInvalidException();
+      throw new NameInvalidException();
     }
     this.value = value;
   }

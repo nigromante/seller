@@ -6,7 +6,7 @@ public final class Rut  {
 
   private String value;
 
-  public static Rut of( String value ) throws Exception {
+  public static Rut Of( String value ) throws Exception {
       return new Rut(value);
   }
   

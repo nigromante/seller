@@ -16,13 +16,13 @@ public final class Order {
       ExceptionsList exList = new ExceptionsList() ; 
 
       try {
-        this.orderId = Code.of(orderId);
+        this.orderId = Code.Of(orderId);
       } catch( Exception ex ){
         exList.Add("orderId" , ex.getMessage() );
       }      
       
       try {
-        this.customerId = Code.of(customerId);
+        this.customerId = Code.Of(customerId);
       } catch( Exception ex ){
         exList.Add("customerId" , ex.getMessage() );
       }
