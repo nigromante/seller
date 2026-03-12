@@ -1,5 +1,5 @@
 
-package com.nigromante.seller.application.dto;
+package com.nigromante.seller.infrastructure.dto;
 
 import lombok.*;
 

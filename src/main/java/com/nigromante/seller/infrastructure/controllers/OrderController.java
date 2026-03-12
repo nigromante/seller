@@ -1,6 +1,6 @@
 package com.nigromante.seller.infrastructure.controllers;
 
-import com.nigromante.seller.application.dto.OrderDTOMapping;
+import com.nigromante.seller.infrastructure.dto.OrderDTOMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import com.nigromante.seller.application.services.*;
 import com.nigromante.seller.domain.entities.Order;
 import com.nigromante.seller.domain.useCases.Order.CreateOrderCommand;
+import com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
 import tools.jackson.databind.ObjectMapper;
@@ -20,9 +21,13 @@ import tools.jackson.databind.ObjectMapper;
 @RequestMapping( value = "order" )
 public class OrderController {
 
-  @Autowired 
+  // @Autowired 
   private OrderService service;
 
+  public OrderController() {
+      this.service = new OrderService( new OrderRepositoryMysql() ) ;
+  }
+  
   
   @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {

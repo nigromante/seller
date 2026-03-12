@@ -3,9 +3,8 @@ package com.nigromante.seller.domain.entities;
 
 import com.nigromante.seller.domain.exceptions.ExceptionsList;
 import com.nigromante.seller.domain.objects.*;
-import lombok.Getter;
 
-@Getter
+
 public final class Order {
 
   private Code orderId;
@@ -29,6 +28,14 @@ public final class Order {
 
       exList.Throw();
   }
+
+    public String getOrderId() {
+        return this.orderId.Value();
+    }
+    
+    public String getCustomerId() {
+        return this.customerId.Value();
+    }
 
 
 }

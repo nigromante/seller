@@ -1,6 +1,6 @@
 
 
-package com.nigromante.seller.application.dto;
+package com.nigromante.seller.infrastructure.dto;
 
 import com.nigromante.seller.domain.entities.Order;
 import tools.jackson.databind.ObjectMapper;
@@ -11,8 +11,8 @@ public class OrderDTOMapping {
     public static OrderDTO Order2DTO( Order order ) {
         return OrderDTO
                 .builder()
-                .orderId( order.getOrderId().Value() )
-                .customerId( order.getCustomerId().Value() )
+                .orderId( order.getOrderId() )
+                .customerId( order.getCustomerId() )
                 .build();
     }
     

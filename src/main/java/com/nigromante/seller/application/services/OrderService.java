@@ -6,10 +6,7 @@ import com.nigromante.seller.application.repositories.OrderRepository;
 import com.nigromante.seller.domain.entities.Order;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-
-@Service
 public class OrderService implements OrderServiceInterface {
     
     private final OrderRepository orderRepository ;

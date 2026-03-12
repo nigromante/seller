@@ -5,9 +5,7 @@ import com.nigromante.seller.domain.exceptions.ExceptionsList;
 import com.nigromante.seller.domain.objects.Code;
 import com.nigromante.seller.domain.objects.Name;
 import com.nigromante.seller.domain.objects.Rut;
-import lombok.Getter;
 
-@Getter
 public class Customer {
     
       private Code  customerId;
@@ -39,5 +37,17 @@ public class Customer {
       exList.Throw();
   }
 
-      
+    public String getCustomerId() {
+        return this.customerId.Value();
+    }
+    
+    public String getRutNumber() {
+        return this.rutNumber.Value();
+    }
+
+    public String getNombre() {
+        return this.nombre.Value();
+    }
+
+    
 }
