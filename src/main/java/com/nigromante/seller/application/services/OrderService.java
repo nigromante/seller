@@ -7,20 +7,18 @@ import com.nigromante.seller.domain.entities.Order;
 
 import java.util.List;
 
-public class OrderService implements OrderServiceInterface {
-    
-    private final OrderRepository orderRepository ;
+public class OrderService extends BaseService implements OrderServiceInterface {
+  
 
-    
     public OrderService( OrderRepository orderRepository ) {
-        this.orderRepository = orderRepository ;
+        super( orderRepository ) ;
     }
-   
+
 
     @Override
     public Order create( CreateOrderCommand orderCommand ) { 
     
-        CreateOrderUseCase useCase = new CreateOrderUseCase( this.orderRepository );
+        CreateOrderUseCase useCase = new CreateOrderUseCase( this.getRepository() );
 
         return useCase.run( orderCommand );
     }
@@ -28,7 +26,7 @@ public class OrderService implements OrderServiceInterface {
 
     @Override
     public List<Order> list( ) {
-        ListOrderUseCase useCase = new ListOrderUseCase( this.orderRepository ) ;
+        ListOrderUseCase useCase = new ListOrderUseCase( this.getRepository() ) ;
         
         return useCase.run( );
     }
@@ -37,7 +35,7 @@ public class OrderService implements OrderServiceInterface {
     @Override
     public Order find( String orderId ){
 
-        FindOrderByIdUseCase useCase = new FindOrderByIdUseCase( this.orderRepository );
+        FindOrderByIdUseCase useCase = new FindOrderByIdUseCase( this.getRepository() );
 
         return useCase.run( orderId );
     }
