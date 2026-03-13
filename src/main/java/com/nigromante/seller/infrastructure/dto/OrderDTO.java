@@ -5,11 +5,16 @@ import lombok.*;
 
 
 @Getter
-@Builder
+@Setter
+@Data
 @ToString
-public final class OrderDTO {
+public class OrderDTO {
 
-  private final @NonNull String orderId;
-  private final @NonNull String customerId;
-
+  private @NonNull String orderId;
+  private @NonNull String customerId;
+  
+  public OrderDTO(){}
+    
+  
 }
+
