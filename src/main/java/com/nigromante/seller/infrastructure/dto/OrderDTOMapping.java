@@ -13,7 +13,7 @@ public class OrderDTOMapping {
     public static String Map( Order order ) {
         
         ModelMapper mmapper = new ModelMapper();
-        
+        /*
         mmapper
                 .typeMap( Order.class, OrderDTO.class)
                 .addMappings( 
@@ -22,6 +22,7 @@ public class OrderDTOMapping {
                         mapper.map( src -> src.getCustomerId() , OrderDTO::setCustomerId);
                     }
                 );
+        */
         OrderDTO orderDTO = mmapper.map(order, OrderDTO.class);
         
         ObjectMapper mapper = new ObjectMapper();
