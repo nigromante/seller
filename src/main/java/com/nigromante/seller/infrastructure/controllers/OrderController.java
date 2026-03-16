@@ -2,11 +2,11 @@
 package com.nigromante.seller.infrastructure.controllers;
 
 import com.nigromante.seller.infrastructure.dto.OrderDTOMapping;
+import com.nigromante.seller.infrastructure.dto.OrderDTOListMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import com.nigromante.seller.application.services.*;
@@ -15,7 +15,6 @@ import com.nigromante.seller.domain.useCases.Order.CreateOrderCommand;
 import com.nigromante.seller.infrastructure.repositories.OrderRepositoryMysql;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
-import tools.jackson.databind.ObjectMapper;
 
 
 @RestController
@@ -33,8 +32,7 @@ public class OrderController {
   public String list() {
 
     List<Order> orders = service.list( );
-    ObjectMapper mapper = new ObjectMapper();
-    return  "{\"message\":\"pp\"}"; 
+    return OrderDTOListMapping.Map( orders );
   }
 
 
