@@ -1,3 +1,4 @@
+
 package com.nigromante.webapp;
 
 import org.springframework.boot.SpringApplication;
@@ -10,18 +11,19 @@ import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
 @ComponentScan({
-      "com.nigromante.webapp", 
-      "com.nigromante.seller" 
-})
+        "com.nigromante.webapp", 
+        "com.nigromante.seller" 
+      })
 public class SellerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SellerApplication.class, args);
-	}
-        
-        @Bean
-         public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-           return args -> {
+  public static void main(String[] args) {
+    SpringApplication.run(SellerApplication.class, args);
+  }
+
+
+  @Bean
+  public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+      return args -> {
 
              System.out.println("----------------------------------------------------");
              String[] beanNames = ctx.getBeanDefinitionNames();
@@ -31,6 +33,7 @@ public class SellerApplication {
              }
              System.out.println("----------------------------------------------------");
 
-           };
-         }
+      };
+  }
+
 }

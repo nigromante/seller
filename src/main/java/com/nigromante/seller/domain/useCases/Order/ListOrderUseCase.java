@@ -6,12 +6,15 @@ import com.nigromante.seller.application.repositories.OrderRepository;
 import java.util.List;
 
 public class ListOrderUseCase {
+
     OrderRepository orderRepository;
+
 
     public ListOrderUseCase(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
-    
+
+
     public List<Order> run( ) { 
         try {
             List<Order> orders = this.orderRepository.getAll() ;
