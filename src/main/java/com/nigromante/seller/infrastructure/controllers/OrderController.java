@@ -3,6 +3,8 @@ package com.nigromante.seller.infrastructure.controllers;
 
 import com.nigromante.seller.infrastructure.dto.OrderDTOMapping;
 import com.nigromante.seller.infrastructure.dto.OrderDTOListMapping;
+import com.nigromante.seller.infrastructure.dto.Object2Json;
+import com.nigromante.seller.infrastructure.dto.OrderDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,7 @@ public class OrderController {
   public String list() {
 
     List<Order> orders = service.list( );
-    return OrderDTOListMapping.Map( orders );
+    return Object2Json.Map( OrderDTOListMapping.Map( orders ) );
   }
 
 
@@ -40,7 +42,7 @@ public class OrderController {
   public String find( @RequestParam String orderId ) {
 
     Order order =  service.find( orderId );
-    return OrderDTOMapping.Map(order);
+    return Object2Json.Map( OrderDTOMapping.Map( order ) );
   }
 
 
@@ -48,7 +50,7 @@ public class OrderController {
   public String create( @RequestBody CreateOrderCommand cmd ) {
 
     Order order = service.create( cmd );
-    return OrderDTOMapping.Map(order);
+    return Object2Json.Map( OrderDTOMapping.Map( order ) );
   }
 
 

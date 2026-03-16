@@ -3,17 +3,14 @@ package com.nigromante.seller.infrastructure.dto;
 
 import com.nigromante.seller.domain.entities.Order;
 import org.modelmapper.ModelMapper;
-import tools.jackson.databind.ObjectMapper;
 
 
-public class OrderDTOMapping {
+public class OrderDTOMapping<T,S> {
 
-    public static String Map( Order order ) {
+    public static OrderDTO  Map( Order order ) {
 
         ModelMapper mmapper = new ModelMapper();
-        OrderDTO orderDTO = mmapper.map(order, OrderDTO.class);
-        ObjectMapper mapper = new ObjectMapper();
-        return  mapper.writeValueAsString( orderDTO );
+        return mmapper.map( order, OrderDTO.class );
     }
 
 }
