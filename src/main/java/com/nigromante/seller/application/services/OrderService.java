@@ -8,7 +8,7 @@ import com.nigromante.seller.domain.entities.Order;
 import java.util.List;
 
 public class OrderService extends BaseService implements OrderServiceInterface {
-  
+
 
     public OrderService( OrderRepository orderRepository ) {
         super( orderRepository ) ;
@@ -17,7 +17,7 @@ public class OrderService extends BaseService implements OrderServiceInterface {
 
     @Override
     public Order create( CreateOrderCommand orderCommand ) { 
-    
+
         CreateOrderUseCase useCase = new CreateOrderUseCase( this.getRepository() );
 
         return useCase.run( orderCommand );
@@ -27,7 +27,7 @@ public class OrderService extends BaseService implements OrderServiceInterface {
     @Override
     public List<Order> list( ) {
         ListOrderUseCase useCase = new ListOrderUseCase( this.getRepository() ) ;
-        
+
         return useCase.run( );
     }
 

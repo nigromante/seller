@@ -1,6 +1,8 @@
 
 package com.nigromante.seller.domain.objects;
+
 import com.nigromante.seller.domain.exceptions.RutInvalidException;
+
 
 public final class Rut  {
 
@@ -9,7 +11,7 @@ public final class Rut  {
   public static Rut Of( String value ) throws Exception {
       return new Rut(value);
   }
-  
+
   private Rut( String value ) throws Exception {
     if( ! this.ensureValue( value) ) {
       throw new RutInvalidException();
@@ -17,7 +19,7 @@ public final class Rut  {
     this.value = value;
   }
 
-  
+
   private boolean ensureValue( String value ) {
     if( value.length() < 4 )
       return false;
@@ -25,9 +27,9 @@ public final class Rut  {
     return  true;
   }
 
-  
+
   public String Value() {
       return this.value;
   }
 
-} 
+}

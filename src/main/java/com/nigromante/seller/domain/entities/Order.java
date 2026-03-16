@@ -18,8 +18,8 @@ public final class Order {
         this.orderId = Code.Of(orderId);
       } catch( Exception ex ){
         exList.Add("orderId" , ex.getMessage() );
-      }      
-      
+      }
+
       try {
         this.customerId = Code.Of(customerId);
       } catch( Exception ex ){
@@ -29,13 +29,15 @@ public final class Order {
       exList.Throw();
   }
 
-    public String getOrderId() {
-        return this.orderId.Value();
-    }
-    
-    public String getCustomerId() {
-        return this.customerId.Value();
-    }
+
+  public String getOrderId() {
+      return this.orderId.Value();
+  }
+
+
+  public String getCustomerId() {
+      return this.customerId.Value();
+  }
 
 
 }

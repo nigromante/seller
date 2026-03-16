@@ -14,6 +14,5 @@ public class OrderDTO {
   private @NonNull String orderId;
   private @NonNull String customerId;
 
-  
 }
 

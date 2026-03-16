@@ -1,3 +1,4 @@
+
 package com.nigromante.seller.infrastructure.controllers;
 
 import com.nigromante.seller.infrastructure.dto.OrderDTOMapping;
@@ -21,37 +22,36 @@ import tools.jackson.databind.ObjectMapper;
 @RequestMapping( value = "order" )
 public class OrderController {
 
-  // @Autowired 
   private OrderService service;
 
   public OrderController() {
       this.service = new OrderService( new OrderRepositoryMysql() ) ;
   }
-  
-  
+
+
   @PostMapping( value="getall", produces = MediaType.APPLICATION_JSON_VALUE )
   public String list() {
-      
+
     List<Order> orders = service.list( );
     ObjectMapper mapper = new ObjectMapper();
     return  "{\"message\":\"pp\"}"; 
-  } 
+  }
 
 
   @PostMapping( value="find", produces = MediaType.APPLICATION_JSON_VALUE )
   public String find( @RequestParam String orderId ) {
-      
+
     Order order =  service.find( orderId );
     return OrderDTOMapping.Map(order);
-  } 
+  }
 
 
   @PostMapping( value = "create", produces = MediaType.APPLICATION_JSON_VALUE )
   public String create( @RequestBody CreateOrderCommand cmd ) {
-    
+
     Order order = service.create( cmd );
     return OrderDTOMapping.Map(order);
-  } 
+  }
 
-  
+
 }

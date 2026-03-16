@@ -5,9 +5,9 @@ import com.nigromante.seller.application.repositories.OrderRepository;
 
 
 public abstract class BaseService {
-    
+
     protected OrderRepository orderRepository ;
-    
+
     public BaseService( OrderRepository orderRepository ) {
         this.orderRepository = orderRepository ;
     }

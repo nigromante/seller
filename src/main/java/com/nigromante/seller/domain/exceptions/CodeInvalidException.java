@@ -7,5 +7,5 @@ public class CodeInvalidException extends Exception {
     public CodeInvalidException() {
         super( "Code Invalid format" );
     }
-  
+
 }

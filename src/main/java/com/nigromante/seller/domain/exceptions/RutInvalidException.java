@@ -7,5 +7,5 @@ public class RutInvalidException extends Exception {
     public RutInvalidException() {
         super( "Invalid RUT" );
     }
-  
+
 }
