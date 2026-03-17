@@ -5,7 +5,7 @@ import com.nigromante.seller.domain.entities.Order;
 import org.modelmapper.ModelMapper;
 
 
-public class OrderDTOMapping<T,S> {
+public class OrderDTOMapping{
 
     public static OrderDTO  Map( Order order ) {
 
